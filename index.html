@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MMASECS Services - Your Security. Your Connectivity. Your Trusted Partner.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* MMASECS Services - Custom CSS Variables */
+        :root {
+            --mmasecs-green: #22c55e;
+            --mmasecs-dark: #1a1a1a;
+            --mmasecs-grey: #374151;
+            --white: #ffffff;
+            --black: #000000;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+        }
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--gray-900);
+            background-color: var(--white);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 0.75rem;
+        }
+
+        h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 2rem;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 0.5rem;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            gap: 0.5rem;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background-color: var(--mmasecs-green);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: #16a34a;
+            transform: translateY(-1px) scale(1.05);
+            box-shadow: 0 10px 15px -3px rgba(34, 197, 94, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--mmasecs-green);
+            border: 2px solid var(--mmasecs-green);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--mmasecs-green);
+            color: var(--white);
+            transform: translateY(-1px) scale(1.05);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--mmasecs-green);
+            border: 2px solid var(--mmasecs-green);
+            width: 100%;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--mmasecs-green);
+            color: var(--white);
+        }
+
+        .btn-outline-contact {
+            background-color: transparent;
+            color: var(--mmasecs-green);
+            border: 2px solid var(--mmasecs-green);
+            width: 100%;
+        }
+
+        .btn-outline-contact:hover {
+            background-color: var(--mmasecs-green);
+            color: var(--white);
+        }
+
+        .btn-icon {
+            width: 1.25rem;
+            height: 1.25rem;
+            fill: currentColor;
+            stroke: currentColor;
+            stroke-width: 2;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--gray-200);
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .nav {
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            height: 2.5rem;
+            width: auto;
+        }
+
+        .nav-menu {
+            display: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            background: none;
+            border: none;
+            color: var(--gray-700);
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--mmasecs-green);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: var(--mmasecs-green);
+        }
+
+        .mobile-menu-btn {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .hamburger {
+            width: 1.5rem;
+            height: 2px;
+            background-color: var(--gray-700);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-btn.active .hamburger:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-menu-btn.active .hamburger:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active .hamburger:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-top: 1px solid var(--gray-200);
+            margin-top: 1rem;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        .mobile-nav-link {
+            background: none;
+            border: none;
+            color: var(--gray-700);
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            text-align: left;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-nav-link:hover {
+            color: var(--mmasecs-green);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            color: var(--white);
+            background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 50%, var(--black) 100%);
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /** background-image: url('https://images.unsplash.com/photo-1639503547276-90230c4a4198?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWNobm9sb2d5JTIwc2VjdXJpdHklMjBzaGllbGQlMjBwcm90ZWN0aW9ufGVufDF8fHx8MTc1OTc2MjMzM3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral'); */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .hero-text {
+            max-width: 64rem;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--mmasecs-green);
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--gray-300);
+            margin-bottom: 2rem;
+            max-width: 48rem;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-out 0.4s forwards;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-out 0.6s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Services Section */
+        .services {
+            padding: 4rem 0;
+            background-color: var(--gray-50);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--gray-600);
+            max-width: 32rem;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-image {
+            position: relative;
+            height: 12rem;
+            overflow: hidden;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+
+        .service-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .service-card:hover .service-overlay {
+            opacity: 1;
+        }
+
+        .service-icon {
+            width: 3rem;
+            height: 3rem;
+            color: var(--mmasecs-green);
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .service-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-title {
+            color: var(--gray-900);
+            margin-bottom: 0.75rem;
+        }
+
+        .service-description {
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+            flex: 1;
+        }
+
+        /* About Section */
+        .about {
+            padding: 4rem 0;
+            background-color: var(--white);
+        }
+
+        .about-visual {
+            position: relative;
+            height: 20rem;
+            border-radius: 1rem;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, var(--mmasecs-green) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            opacity: 0;
+            transform: scale(0.95);
+            transition: all 0.6s ease;
+        }
+
+        .about-visual.animate {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .about-content {
+            text-align: center;
+            color: var(--white);
+        }
+
+        .about-icon {
+            width: 4rem;
+            height: 4rem;
+            color: var(--mmasecs-green);
+            margin-bottom: 1rem;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .about-content h3 {
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+
+        .about-content p {
+            color: rgba(34, 197, 94, 0.8);
+            margin-bottom: 0;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 4rem 0;
+            background-color: var(--gray-900);
+            color: var(--white);
+        }
+
+        .section-title.white {
+            color: var(--white);
+        }
+
+        .section-subtitle.white {
+            color: var(--gray-300);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 64rem;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background-color: var(--gray-800);
+            border: 1px solid var(--gray-700);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.6s ease;
+        }
+
+        .contact-card:nth-child(2) {
+            transform: translateX(30px);
+        }
+
+        .contact-card.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .contact-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            color: var(--mmasecs-green);
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .contact-header h3 {
+            color: var(--mmasecs-green);
+            margin-bottom: 0;
+        }
+
+        .contact-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .contact-label {
+            color: var(--gray-300);
+            margin-bottom: 0;
+        }
+
+        .contact-value {
+            color: var(--white);
+            margin-bottom: 0;
+        }
+
+        .contact-value.green {
+            color: var(--mmasecs-green);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-brand {
+            text-align: center;
+        }
+
+        .footer-logo {
+            height: 3rem;
+            width: auto;
+            margin-bottom: 1rem;
+           /* filter: brightness(0) invert(1); */
+        }
+
+        .footer-description {
+            color: var(--gray-400);
+            margin-bottom: 0;
+        }
+
+        .footer-links {
+            text-align: center;
+        }
+
+        .footer-links h4 {
+            color: var(--mmasecs-green);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links button {
+            display: block;
+            width: 100%;
+            background: none;
+            border: none;
+            color: var(--gray-400);
+            text-decoration: none;
+            padding: 0.25rem 0;
+            transition: color 0.3s ease;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .footer-links button:hover {
+            color: var(--mmasecs-green);
+        }
+
+        .footer-social {
+            text-align: center;
+        }
+
+        .footer-social h4 {
+            color: var(--mmasecs-green);
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            background-color: var(--gray-800);
+            color: var(--gray-400);
+            border-radius: 0.5rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .social-link:hover {
+            background-color: var(--mmasecs-green);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .social-link svg {
+            width: 1.25rem;
+            height: 1.25rem;
+            fill: currentColor;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--gray-800);
+            padding-top: 2rem;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            color: var(--gray-400);
+            margin-bottom: 0;
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            z-index: 1000;
+            width: 3.5rem;
+            height: 3.5rem;
+            background-color: var(--mmasecs-green);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: scale(0);
+            animation: scaleIn 0.5s ease-out 1s forwards;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #16a34a;
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+        }
+
+        .whatsapp-float svg {
+            width: 1.5rem;
+            height: 1.5rem;
+            fill: currentColor;
+        }
+
+        @keyframes scaleIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Responsive Design */
+        @media (min-width: 640px) {
+            .hero-buttons {
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .nav-menu {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 3.5rem;
+            }
+
+            .about-visual {
+                height: 24rem;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .hero-title {
+                font-size: 4rem;
+            }
+        }
+
+        /* Animation utilities */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="container">
+                <div class="nav-container">
+                    <div class="nav-brand">
+                        <img src="mmasecs-logo.png" alt="MMASECS Services Logo" class="logo">
+                    </div>
+
+                    <!-- Desktop Navigation -->
+                    <div class="nav-menu">
+                        <button class="nav-link active" data-section="home">Home</button>
+                        <button class="nav-link" data-section="services">Services</button>
+                        <button class="nav-link" data-section="about">About</button>
+                        <button class="nav-link" data-section="contact">Contact</button>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <span class="hamburger"></span>
+                        <span class="hamburger"></span>
+                        <span class="hamburger"></span>
+                    </button>
+                </div>
+
+                <!-- Mobile Navigation -->
+                <div class="mobile-menu" id="mobileMenu">
+                    <button class="mobile-nav-link" data-section="home">Home</button>
+                    <button class="mobile-nav-link" data-section="services">Services</button>
+                    <button class="mobile-nav-link" data-section="about">About</button>
+                    <button class="mobile-nav-link" data-section="contact">Contact</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="container">
+                <div class="hero-text">
+                    <h1 class="hero-title">Your Security. Your Connectivity. Your Trusted Partner.</h1>
+                    <p class="hero-subtitle">MMASECS Services provides reliable security, internet, and digital solutions for homes, offices, and communities.</p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" onclick="openWhatsApp('+27XXXXXXXXX')">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                            Get a Quote
+                        </button>
+                        <button class="btn btn-secondary" onclick="scrollToSection('services')">
+                            View Services
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-subtitle">From security systems to digital solutions, we provide comprehensive services to keep you connected and protected.</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- CCTV Installation -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1669049515462-6ab71c151720?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzZWN1cml0eSUyMGNhbWVyYSUyMENDVFYlMjBpbnN0YWxsYXRpb258ZW58MXx8fHwxNzU5NzYyMzMwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="CCTV Installation & Monitoring">
+                        <div class="service-overlay">
+                            <svg class="service-icon" viewBox="0 0 24 24">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">CCTV Installation & Monitoring</h3>
+                        <p class="service-description">Security isn't an option—it's a necessity. Trust our top-notch CCTV installation, remote access, and 24/7 monitoring.</p>
+                        <button class="btn btn-outline" onclick="openWhatsApp('+27XXXXXXXXX')">Learn More</button>
+                    </div>
+                </div>
+
+                <!-- Alarm Installation -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1578096241494-6cc439ab21ad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzZWN1cml0eSUyMGFsYXJtJTIwc3lzdGVtJTIwcHJvdGVjdGlvbnxlbnwxfHx8fDE3NTk3NjIzMzF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Alarm Installation & Armed Response">
+                        <div class="service-overlay">
+                            <svg class="service-icon" viewBox="0 0 24 24">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Alarm Installation & Armed Response</h3>
+                        <p class="service-description">Experience complete coverage with integrated alarms and sensors safeguarding every access point.</p>
+                        <button class="btn btn-outline" onclick="openWhatsApp('+27XXXXXXXXX')">Learn More</button>
+                    </div>
+                </div>
+
+                <!-- WiFi Installation -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1606904825846-647eb07f5be2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3aWZpJTIwcm91dGVyJTIwbmV0d29yayUyMGluc3RhbGxhdGlvbnxlbnwxfHx8fDE3NTk3NjIzMzJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="WiFi Installation">
+                        <div class="service-overlay">
+                            <svg class="service-icon" viewBox="0 0 24 24">
+                                <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+                                <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+                                <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+                                <line x1="12" y1="20" x2="12.01" y2="20"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">WiFi Installation (Home & Business)</h3>
+                        <p class="service-description">Reliable, high-speed WiFi setup and maintenance. R2000 once-off installation, R599/month for 50mbps.</p>
+                        <button class="btn btn-outline" onclick="openWhatsApp('+27XXXXXXXXX')">Learn More</button>
+                    </div>
+                </div>
+
+                <!-- Printer Setup -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="printer-setup.png" alt="Printer Setup & Repair">
+                        <div class="service-overlay">
+                            <svg class="service-icon" viewBox="0 0 24 24">
+                                <polyline points="6,9 6,2 18,2 18,9"/>
+                                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+                                <rect x="6" y="14" width="12" height="8"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Printer Setup & Repair</h3>
+                        <p class="service-description">Your printer's lifeline starts here. We handle setup, maintenance, and repair for homes and offices.</p>
+                        <button class="btn btn-outline" onclick="openWhatsApp('+27XXXXXXXXX')">Learn More</button>
+                    </div>
+                </div>
+
+                <!-- Graphic Design -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="graphic-design.png" alt="Graphic Design">
+                        <div class="service-overlay">
+                            <svg class="service-icon" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Graphic Design</h3>
+                        <p class="service-description">Professional designs for posters, logos, invitations, funeral programs, and social media.</p>
+                        <button class="btn btn-outline" onclick="openWhatsApp('+27XXXXXXXXX')">Learn More</button>
+                    </div>
+                </div>
+
+                <!-- Student Applications -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="nsfas-logo.png" alt="Student Applications">
+                        <div class="service-overlay">
+                            <svg class="service-icon" viewBox="0 0 24 24">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Student Applications</h3>
+                        <p class="service-description">We assist with 2026 NSFAS, TVET, and university applications. Helping students take their next step.</p>
+                        <button class="btn btn-outline" onclick="openWhatsApp('+27XXXXXXXXX')">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div style="max-width: 64rem; margin: 0 auto;">
+                <div class="section-header animate-on-scroll">
+                    <h2 class="section-title">Who We Are</h2>
+                    <p class="section-subtitle" style="color: var(--gray-700);">MMASECS Services is a proudly South African company combining innovation and integrity. From home security to internet solutions, we deliver reliability, safety, and connectivity you can trust.</p>
+                </div>
+
+                <div class="about-visual">
+                    <div class="about-content">
+                        <svg class="about-icon" viewBox="0 0 24 24">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                        <h3>Trusted. Reliable. Professional.</h3>
+                        <p>Serving South African communities with excellence</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title white">Get in Touch</h2>
+                <p class="section-subtitle white">Contact us for installations, repairs, or assistance — we're available 7 days a week.</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <svg class="contact-icon" viewBox="0 0 24 24">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                        </svg>
+                        <h3>WhatsApp</h3>
+                    </div>
+                    <div class="contact-content">
+                        <div class="contact-item">
+                            <p class="contact-label">Primary Contact:</p>
+                            <button class="btn btn-outline-contact" onclick="openWhatsApp('+27XXXXXXXXX')">+27 XXX XXX XXXX</button>
+                        </div>
+                        <div class="contact-item">
+                            <p class="contact-label">Secondary Contact:</p>
+                            <button class="btn btn-outline-contact" onclick="openWhatsApp('+27YYYYYYYYY')">+27 XXX XXX XXXX</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <svg class="contact-icon" viewBox="0 0 24 24">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                        <h3>Visit Us</h3>
+                    </div>
+                    <div class="contact-content">
+                        <div class="contact-item">
+                            <p class="contact-label">Address:</p>
+                            <p class="contact-value">[Insert full address here]</p>
+                        </div>
+                        <div class="contact-item">
+                            <p class="contact-label">Email:</p>
+                            <p class="contact-value green">[insert email if available]</p>
+                        </div>
+                        <div class="contact-item">
+                            <p class="contact-label">Operating Hours:</p>
+                            <p class="contact-value">7 Days a Week</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="mmasecs-logo.png" alt="MMASECS Services Logo" class="footer-logo">
+                    <p class="footer-description">Your trusted partner for security, connectivity, and digital solutions in South Africa.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <button onclick="scrollToSection('home')">Home</button>
+                    <button onclick="scrollToSection('services')">Services</button>
+                    <button onclick="scrollToSection('about')">About</button>
+                    <button onclick="scrollToSection('contact')">Contact</button>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <button class="social-link">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </button>
+                        <button class="social-link">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </button>
+                        <button class="social-link" onclick="openWhatsApp('+27XXXXXXXXX')">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 MMASECS Services. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <button class="whatsapp-float" onclick="openWhatsApp('+27XXXXXXXXX')">
+        <svg viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+        </svg>
+    </button>
+
+    <script>
+        // MMASECS Services - Interactive JavaScript
+        
+        // Global Variables
+        let activeSection = 'home';
+        let isMenuOpen = false;
+        
+        // WhatsApp Configuration
+        const whatsappNumbers = {
+            primary: '+27XXXXXXXXX',
+            secondary: '+27YYYYYYYYY'
+        };
+        const whatsappMessage = "Hi! I'm interested in your services. Please provide more information.";
+        
+        // DOM Elements
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeNavigation();
+            initializeScrollAnimations();
+            initializeIntersectionObserver();
+            initializeScrollSpy();
+            initializeHeaderEffects();
+        });
+        
+        // Navigation Functions
+        function initializeNavigation() {
+            // Mobile menu toggle
+            mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+            
+            // Navigation link clicks
+            [...navLinks, ...mobileNavLinks].forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const section = this.getAttribute('data-section');
+                    scrollToSection(section);
+                    if (isMenuOpen) {
+                        toggleMobileMenu();
+                    }
+                });
+            });
+        }
+        
+        function toggleMobileMenu() {
+            isMenuOpen = !isMenuOpen;
+            mobileMenu.classList.toggle('active');
+            mobileMenuBtn.classList.toggle('active');
+        }
+        
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                const headerHeight = document.querySelector('.header').offsetHeight;
+                const elementPosition = element.offsetTop - headerHeight;
+                
+                window.scrollTo({
+                    top: elementPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+        
+        // Scroll Spy for Navigation
+        function initializeScrollSpy() {
+            window.addEventListener('scroll', throttle(updateActiveSection, 100));
+        }
+        
+        function updateActiveSection() {
+            const sections = ['home', 'services', 'about', 'contact'];
+            const scrollPosition = window.scrollY + 150;
+            
+            sections.forEach(section => {
+                const element = document.getElementById(section);
+                if (element) {
+                    const offsetTop = element.offsetTop;
+                    const height = element.offsetHeight;
+                    
+                    if (scrollPosition >= offsetTop && scrollPosition < offsetTop + height) {
+                        if (activeSection !== section) {
+                            activeSection = section;
+                            updateNavigationHighlight(section);
+                        }
+                    }
+                }
+            });
+        }
+        
+        function updateNavigationHighlight(section) {
+            // Update desktop navigation
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('data-section') === section) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Update mobile navigation  
+            mobileNavLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('data-section') === section) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        // WhatsApp Functions
+        function openWhatsApp(number) {
+            const cleanNumber = number.replace(/\s/g, '');
+            const url = `https://wa.me/${cleanNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+            window.open(url, '_blank');
+        }
+        
+        // Header scroll effect
+        function initializeHeaderEffects() {
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('.header');
+                if (window.scrollY > 100) {
+                    header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+                    header.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+                } else {
+                    header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                    header.style.boxShadow = 'none';
+                }
+            });
+        }
+        
+        // Scroll Animations
+        function initializeScrollAnimations() {
+            // Service cards staggered animation
+            const serviceCards = document.querySelectorAll('.service-card');
+            serviceCards.forEach((card, index) => {
+                card.style.transitionDelay = `${index * 100}ms`;
+            });
+        }
+        
+        // Intersection Observer for Animations
+        function initializeIntersectionObserver() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(handleIntersection, observerOptions);
+            
+            // Observe elements with animation classes
+            const animatedElements = document.querySelectorAll([
+                '.service-card',
+                '.animate-on-scroll',
+                '.about-visual',
+                '.contact-card'
+            ].join(','));
+            
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+        }
+        
+        function handleIntersection(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }
+        
+        // Utility Functions
+        function throttle(func, limit) {
+            let inThrottle;
+            return function() {
+                const args = arguments;
+                const context = this;
+                if (!inThrottle) {
+                    func.apply(context, args);
+                    inThrottle = true;
+                    setTimeout(() => inThrottle = false, limit);
+                }
+            }
+        }
+        
+        // Handle service card hover effects
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.service-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+        
+        // Keyboard navigation support
+        document.addEventListener('keydown', function(e) {
+            // Escape key closes mobile menu
+            if (e.key === 'Escape' && isMenuOpen) {
+                toggleMobileMenu();
+            }
+            
+            // Arrow keys for section navigation
+            if (e.key === 'ArrowDown' && e.ctrlKey) {
+                e.preventDefault();
+                navigateToNextSection();
+            } else if (e.key === 'ArrowUp' && e.ctrlKey) {
+                e.preventDefault();
+                navigateToPreviousSection();
+            }
+        });
+        
+        function navigateToNextSection() {
+            const sections = ['home', 'services', 'about', 'contact'];
+            const currentIndex = sections.indexOf(activeSection);
+            const nextIndex = (currentIndex + 1) % sections.length;
+            scrollToSection(sections[nextIndex]);
+        }
+        
+        function navigateToPreviousSection() {
+            const sections = ['home', 'services', 'about', 'contact'];
+            const currentIndex = sections.indexOf(activeSection);
+            const prevIndex = currentIndex === 0 ? sections.length - 1 : currentIndex - 1;
+            scrollToSection(sections[prevIndex]);
+        }
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (isMenuOpen && !mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                toggleMobileMenu();
+            }
+        });
+        
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 768 && isMenuOpen) {
+                toggleMobileMenu();
+            }
+        });
+        
+        // Smooth page load
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '1';
+        });
+    </script>
+</body>
+</html>
